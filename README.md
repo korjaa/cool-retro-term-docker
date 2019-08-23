@@ -4,7 +4,7 @@ Docker image for running [cool-retro-term](https://github.com/Swordfish90/cool-r
 
 ## Build
 
-`docker build -t mikkorepolainen/cool-retro-term docker`
+`docker build -t cool-retro-term .`
 
 ## Usage
 
