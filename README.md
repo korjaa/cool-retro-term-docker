@@ -8,7 +8,7 @@ Docker image for running [cool-retro-term](https://github.com/Swordfish90/cool-r
 
 ## Usage
 
-`docker run --rm -e DISPLAY=<host>:0 --hostname crt mikkorepolainen/cool-retro-term`
+`docker run --rm -e DISPLAY=<host>:0 --hostname crt cool-retro-term`
 
 where `<host>` is empty for localhost or an IP for the computer where the desired X server is running.
 
@@ -16,15 +16,12 @@ To mount a data volume, add `-v C:\Some\Path:/some/path` to the command before t
 
 Keep your configuration by adding a volume for the internal sqlite db: `-v cool-retro-term-config:/root/.local/share/cool-retro-term/QML/OfflineStorage/Databases/` (use a bind mount like for data volumes if you want to muck around with the db externally).
 
-Append arguments at the end of the command, e.g. `docker run --rm -it mikkorepolainen/cool-retro-term -h` to display usage.
+Append arguments at the end of the command, e.g. `docker run --rm -it cool-retro-term -h` to display usage.
 
 ## Locally on Linux
 
-You can execute `xhost +` before running to turn off access control for X (perhaps not necessary, probably unadvisable?) and the X connection is managed by mounting the X11 socket as a volume (I'll just pretend I know what that means).
-
-`xhost + && docker run --rm -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY mikkorepolainen/cool-retro-term`
-
-TODO not tested
+You can launch cool-retro-term in Linux with:
+`./cool-retro-term-docker.sh`
 
 ## On Windows (10) with Docker for Windows
 
